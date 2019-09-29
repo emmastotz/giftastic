@@ -30,6 +30,7 @@ $(document).ready(function() {
       var imageURL = response.data[j].url;
       // Creates an element to hold the image
       var imageDiv = $("<img>").attr("src", imageURL);
+      console.log(imageURL);
       // Appends the image to the gif div
       gifDiv.append(imageDiv);
       }
