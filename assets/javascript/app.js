@@ -2,7 +2,16 @@ $(document).ready(function() {
   var cartoons = ["BOB'S BURGERS", "ADVENTURE TIME", "RICK & MORTY", "ARCHER", "FUTURAMA", "SOUTH PARK", "FAMILY GUY", "SPONGEBOB SQUAREPANTS", "BIG MOUTH", "BRICKLEBERRY"];
     
   //animateGifs functions starts and stops when the user clicks on the image
-  // $(document).on("click", ".cartoon", animateGifs)
+  $(document).on("click", ".gif", function() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  });
   
   // displayCartoonInfo function re-renders the HTML to display the appropriate content
   function displayCartoonInfo() {
@@ -17,30 +26,38 @@ $(document).ready(function() {
       console.log (response);
       
       // Creates a div to hold the movie
-      var gifDiv = $("<div>");
-      gifDiv.addClass("gifs-div");
+      var gifDiv = $("#gifs-view");
+      gifDiv.addClass("gifs-div row");
 
       for (var j = 0; j < 10; j++){
+        var gifColDiv = $("<div>");
+        gifColDiv.addClass("col-4");
+
         // Retrieves the Rating Data
         var rating = response.data[j].rating;
         var newRating = rating.toUpperCase();
         // Creates an element to have the rating displayed
         var ratingDiv = $("<div>");
+        ratingDiv.addClass("rating-div")
         // Displays the rating
         ratingDiv.text("RATING: " + newRating);
         // Appends the rating to the gif div
-        gifDiv.append(ratingDiv);
+        gifColDiv.append(ratingDiv);
 
         // Retrieves the Image URL
-        var imageURL = response.data[j].images["480w_still"].url;
-        // Creates an element to hold the image
-        var imageDiv = $("<img>").attr("src", imageURL);
+        var imageUrlStill = response.data[j].images["fixed_height_still"].url;
+        var imageUrlAnimate = response.data[j].images["fixed_height"].url;
+        // Creates an element to hold the image with the info needed to make the gif animate or not
+        var imageDiv = $("<img>").attr({"src":imageUrlStill, "data-still":imageUrlStill, "data-animate":imageUrlAnimate,"data-state":"still", "class":"gif"});
         // Appends the image to the gif div
-        gifDiv.append(imageDiv);
+        gifColDiv.append(imageDiv);
+
+        gifDiv.prepend(gifColDiv);
       }
       
+      
       // Puts the set of gifs above the previous set of gifs.
-      $("#gifs-view").prepend(gifDiv);
+      // $("#gifs-view").prepend(gifDiv);
     });
 
   }

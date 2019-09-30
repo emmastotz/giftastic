@@ -54,6 +54,17 @@ button:hover {
   color: hotpink;
 }
 
-.gifs-div {
-  float: left;
+.rating-div {
+  color: black;
+  background-image: linear-gradient(purple, hotpink);
+  padding: 1%;
+  text-align: center;
+}
+
+.gif {
+  border-color: black;
+  border: solid;
+  border-width: .25%;
+  margin: 1%;
+  margin-top: 1%;
 }
