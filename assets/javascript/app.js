@@ -1,7 +1,10 @@
 $(document).ready(function() {
   var cartoons = ["BOB'S BURGERS", "ADVENTURE TIME", "RICK & MORTY", "ARCHER", "FUTURAMA", "SOUTH PARK", "FAMILY GUY", "SPONGEBOB SQUAREPANTS", "BIG MOUTH", "BRICKLEBERRY"];
     
-  // displayMovieInfo function re-renders the HTML to display the appropriate content
+  //animateGifs functions starts and stops when the user clicks on the image
+  // $(".cartoon").on("click", function(event) {}
+  
+  // displayCartoonInfo function re-renders the HTML to display the appropriate content
   function displayCartoonInfo() {
 
   var cartoon = $(this).attr("data-name");
@@ -13,6 +16,7 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       console.log (response);
+      
       // Creates a div to hold the movie
       var gifDiv = $("<div>");
       

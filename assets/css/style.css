@@ -1,5 +1,5 @@
 body {
-  background-image: url(../images/comic-book.png);
+  background-image: url(../images/comic-book-2-01.png);
   height: 100%;
   background-size: cover;
   color: hotpink;
@@ -27,6 +27,17 @@ button {
   text-align: center;
 }
 
+label {
+  color: black;
+  /* text-shadow: 2px 2px black; */
+  box-shadow: 5px 5px 2px black;
+  margin: 1%;
+  background-image: linear-gradient(purple, hotpink);
+  border-radius: 8px;
+  padding: 1%;
+  text-align: center;
+}
+
 input {
   border-radius: 8px;
   margin: 1%;
@@ -43,3 +54,6 @@ button:hover {
   color: hotpink;
 }
 
+div.gifs-div {
+  float: left;
+}
