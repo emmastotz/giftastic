@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var cartoons = ["Bob's Burgers", "Adventure Time", "Rick and Morty", "Archer", "Futurama", "South Park", "Family Guy", "Bojack Horseman", "Big Mouth", "Brickleberry"];
+  var cartoons = ["BOB'S BURGERS", "ADVENTURE TIME", "RICK & MORTY", "ARCHER", "FUTURAMA", "SOUTH PARK", "FAMILY GUY", "SPONGEBOB SQUAREPANTS", "BIG MOUTH", "BRICKLEBERRY"];
     
   // displayMovieInfo function re-renders the HTML to display the appropriate content
   function displayCartoonInfo() {
@@ -19,10 +19,11 @@ $(document).ready(function() {
       for (var j = 0; j < 10; j++){
         // Retrieves the Rating Data
       var rating = response.data[j].rating;
+      var newRating = rating.toUpperCase();
       // Creates an element to have the rating displayed
       var ratingDiv = $("<div>");
       // Displays the rating
-      ratingDiv.text("Rating: " + rating);
+      ratingDiv.text("RATING: " + newRating);
       // Appends the rating to the gif div
       gifDiv.append(ratingDiv);
 
@@ -30,14 +31,12 @@ $(document).ready(function() {
       var imageURL = response.data[j].url;
       // Creates an element to hold the image
       var imageDiv = $("<img>").attr("src", imageURL);
-      console.log(imageURL);
       // Appends the image to the gif div
       gifDiv.append(imageDiv);
       }
       
-      
 
-      // Puts the entire Movie above the previous movies.
+      // Puts the set of gifs above the previous set of gifs.
       $("#gifs-view").prepend(gifDiv);
     });
 
@@ -45,15 +44,19 @@ $(document).ready(function() {
 
   // Function for displaying movie data
   function renderButtons() {
-    // Deletes the movies prior to adding new movies
+    // Deletes the cartoons prior to adding new movies
     $("#buttons-view").empty();
     // Loops through the array of movies
     for (var i = 0; i < cartoons.length; i++) {
       // Generates buttons for each movie in the array
       var button = $("<button>");
-      // Adds a class of movie to our button
-      button.addClass("cartoon");
+      // Adds a class of cartoon to our button
+      button.addClass("cartoon", "btn", "btn-secondary");
       // Added a data-attribute
+      //button.attr("type", "button");
+      //button.attr({"type":button, "data-name":cartoons[i]});
+      
+      //console.log(button);
       button.attr("data-name", cartoons[i]);
       // Provided the initial button text
       button.html(cartoons[i]);
@@ -67,9 +70,10 @@ $(document).ready(function() {
     event.preventDefault();
     // This line of code will grab the input from the textbox
     var cartoon = $("#gif-input").val().trim();
-
+    var newCartoon = cartoon.toUpperCase();
     // The cartoon from the textbox is then added to our array
-    cartoons.push(cartoon);
+    
+    cartoons.push(newCartoon);
 
     // Calling renderButtons which handles the processing of the cartoon array
     renderButtons();

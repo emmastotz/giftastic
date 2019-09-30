@@ -1,0 +1,45 @@
+body {
+  background-image: url(../images/comic-book.png);
+  height: 100%;
+  background-size: cover;
+  color: hotpink;
+  font-family: 'Fredoka One', cursive;
+}
+
+div.jumbotron {
+  background-color: black;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  color: white;
+  background-image: linear-gradient(gray, darkgray);
+  box-shadow: 5px 5px 2px black;
+  margin: 1%;
+  border-radius: 8px;
+  border-color: black;
+  border: 1px;
+  padding: 1%;
+  text-align: center;
+}
+
+input {
+  border-radius: 8px;
+  margin: 1%;
+  border-radius: 8px;
+  border-color: black;
+  box-shadow: 5px 5px 2px black;
+  border: 1px;
+  padding: 1%;
+  width: 75%;
+  font-size: 18px;
+}
+
+button:hover {
+  color: hotpink;
+}
+
