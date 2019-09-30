@@ -1,2 +1,4 @@
 # giftastic
-Because choosey moms choose gif. 
+Because choosy moms choose gif. 
+
+Deployed at https://emmastotz.github.io/giftastic/

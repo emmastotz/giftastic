@@ -68,3 +68,9 @@ button:hover {
   margin: 1%;
   margin-top: 1%;
 }
+
+#footer {
+  text-align: center;
+  text-size-adjust: 10pt;
+  color: grey;
+}
