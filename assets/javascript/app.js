@@ -38,7 +38,7 @@ $(document).ready(function() {
         var newRating = rating.toUpperCase();
         // Creates an element to have the rating displayed
         var ratingDiv = $("<div>");
-        ratingDiv.addClass("rating-div")
+        ratingDiv.addClass("rating-div");
         // Displays the rating
         ratingDiv.text("RATING: " + newRating);
         // Appends the rating to the gif div
