@@ -54,10 +54,6 @@ $(document).ready(function() {
 
         gifDiv.prepend(gifColDiv);
       }
-      
-      
-      // Puts the set of gifs above the previous set of gifs.
-      // $("#gifs-view").prepend(gifDiv);
     });
 
   }
@@ -88,10 +84,10 @@ $(document).ready(function() {
   // This function handles events where the add cartoon button is clicked
   $("#add-gif").on("click", function(event) {
     event.preventDefault();
-    // This line of code will grab the input from the textbox
+    // This line of code will grab the input from the text box
     var cartoon = $("#gif-input").val().trim();
     var newCartoon = cartoon.toUpperCase();
-    // The cartoon from the textbox is then added to our array
+    // The cartoon from the text box is then added to our array
     
     cartoons.push(newCartoon);
 
@@ -102,6 +98,6 @@ $(document).ready(function() {
   // Adding click event listeners to all elements with a class of "cartoon"
   $(document).on("click", ".cartoon", displayCartoonInfo);
 
-  // Calling the renderButtons function to display the intial buttons
+  // Calling the renderButtons function to display the initial buttons
   renderButtons();
 });
